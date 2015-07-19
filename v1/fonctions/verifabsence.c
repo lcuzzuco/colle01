@@ -1,3 +1,4 @@
+
 int absentligne(int k, char **tableau, int i)
 {
 	int j;
@@ -5,8 +6,8 @@ int absentligne(int k, char **tableau, int i)
 	j = 0;
 	while (j < 9)
 	{
-	if(tableau[i][j] == k)
-		return (0);
+		if(tableau[i][j] == k)
+			return (0);
 		j++;
 	}
 	return (1);
@@ -20,7 +21,7 @@ int absentcolonne(int k, char **tableau, int j)
 	while (i < 9)
 	{
 		if(tableau[i][j] == k)
-		return (0);
+			return (0);
 		i++;
 	}
 	return (1);
@@ -33,17 +34,18 @@ int absentblock(int k, char **tableau, int i, int j)
 
 	_i = i - (i % 3);
 	_j = j - (j % 3);
+	i = _i;
+
 	while (i < _i + 3)
 	{
-		i = _i;
-		i++;
+		j = _j;
 		while (j < _j + 3)
 		{
-			j = _j + 3;
-			j++;
-			if (**tableau == k)
+			if (tableau[i][j] == k)
 				return (0);
+			j++;
 		}
-	return(1);
+	i++;
+		return(1);
 	}
 }
